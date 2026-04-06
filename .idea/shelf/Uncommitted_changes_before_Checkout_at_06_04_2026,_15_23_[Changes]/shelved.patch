@@ -1,0 +1,58 @@
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>target/\n!.mvn/wrapper/maven-wrapper.jar\n!**/src/main/**/target/\n!**/src/test/**/target/\n.kotlin\n\n### IntelliJ IDEA ###\n.idea/modules.xml\n.idea/jarRepositories.xml\n.idea/compiler.xml\n.idea/libraries/\n*.iws\n*.iml\n*.ipr\n\n### Eclipse ###\n.apt_generated\n.classpath\n.factorypath\n.project\n.settings\n.springBeans\n.sts4-cache\n\n### NetBeans ###\n/nbproject/private/\n/nbbuild/\n/dist/\n/nbdist/\n/.nb-gradle/\nbuild/\n!**/src/main/**/build/\n!**/src/test/**/build/\n\n### VS Code ###\n.vscode/\n\n### Mac OS ###\n.DS_Store
+===================================================================
+diff --git a/.gitignore b/.gitignore
+--- a/.gitignore	(revision 973ecd633f877351a2105d0771eb364a01211a1e)
++++ b/.gitignore	(date 1775477597103)
+@@ -1,39 +1,15 @@
++# Maven
+ target/
+-!.mvn/wrapper/maven-wrapper.jar
+-!**/src/main/**/target/
+-!**/src/test/**/target/
+-.kotlin
++*.log
+ 
+-### IntelliJ IDEA ###
+-.idea/modules.xml
+-.idea/jarRepositories.xml
+-.idea/compiler.xml
+-.idea/libraries/
+-*.iws
++# IntelliJ IDEA
++.idea/
+ *.iml
+-*.ipr
++out/
+ 
+-### Eclipse ###
+-.apt_generated
+-.classpath
+-.factorypath
+-.project
+-.settings
+-.springBeans
+-.sts4-cache
++# OS
++.DS_Store
+ 
+-### NetBeans ###
+-/nbproject/private/
+-/nbbuild/
+-/dist/
+-/nbdist/
+-/.nb-gradle/
+-build/
+-!**/src/main/**/build/
+-!**/src/test/**/build/
++# Env
++.env
+ 
+-### VS Code ###
+-.vscode/
+-
+-### Mac OS ###
+-.DS_Store
+\ No newline at end of file
