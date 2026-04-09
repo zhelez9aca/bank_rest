@@ -2,5 +2,5 @@ package org.example.dto;
 
 import java.time.LocalDateTime;
 
-public record ErrorResponse(Integer status, String message, LocalDateTime timeStamp) {
+public record ErrorResponseDTO(Integer status, String message, LocalDateTime timeStamp) {
 }

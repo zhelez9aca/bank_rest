@@ -1,6 +1,6 @@
 package org.example.mapper;
 
-import org.example.enums.TransferStatus;
+import org.example.enums.TransferStatusEnum;
 import org.example.model.Card;
 import org.example.model.Transfer;
 import org.springframework.stereotype.Component;
@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 
 @Component
 public class TransferMapper {
-    public Transfer toTransfer(Card fromCard, Card toCard, BigDecimal amount, TransferStatus status){
+    public Transfer toTransfer(Card fromCard, Card toCard, BigDecimal amount, TransferStatusEnum status){
         var transfer = new Transfer();
         transfer.setAmount(amount);
         transfer.setStatus(status);

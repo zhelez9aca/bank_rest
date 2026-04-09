@@ -1,7 +1,7 @@
 package org.example.exception;
 
-public class BadCardBlockRequest extends RuntimeException {
-    public BadCardBlockRequest(String message) {
+public class BadCardBlockRequestException extends RuntimeException {
+    public BadCardBlockRequestException(String message) {
         super(message);
     }
 }

@@ -1,5 +1,5 @@
 package org.example.enums;
 
-public enum CardBlockStatus {
-    PENDING,APPROVED,REJECTED
+public enum CardBlockStatusEnum {
+    PENDING, APPROVED, REJECTED
 }

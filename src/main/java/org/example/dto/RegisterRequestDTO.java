@@ -1,4 +1,4 @@
 package org.example.dto;
 
-public record RegisterRequest(String login, String password) {
+public record RegisterRequestDTO(String login, String password) {
 }

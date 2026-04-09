@@ -1,14 +1,15 @@
 package org.example.dto;
 
-import org.example.enums.CardStatus;
+import org.example.enums.CardStatusEnum;
 
 import java.math.BigDecimal;
 
-public record CardResponse(
+public record CardResponseDTO(
         String maskedPan,
         String holderName,
         int expiryMonth,
         int expiryYear,
-        CardStatus status,
+        CardStatusEnum status,
         BigDecimal balance
-        ){}
+) {
+}

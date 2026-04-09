@@ -1,8 +1,8 @@
 package org.example.service;
 
 import lombok.AllArgsConstructor;
-import org.example.enums.CardStatus;
-import org.example.enums.TransferStatus;
+import org.example.enums.CardStatusEnum;
+import org.example.enums.TransferStatusEnum;
 import org.example.exception.BadTransferRequestException;
 import org.example.exception.CardNotFoundException;
 import org.example.mapper.TransferMapper;
@@ -34,14 +34,14 @@ public class TransferService {
         }
         var fromCard = fromCardOpt.get();
         var toCard = toCardOpt.get();
-        var transfer = transferMapper.toTransfer(fromCard,toCard,amount,TransferStatus.PENDING);
+        var transfer = transferMapper.toTransfer(fromCard, toCard, amount, TransferStatusEnum.PENDING);
         if (!toCard.getUser().equals(fromCard.getUser())) {
-            transfer.setStatus(TransferStatus.FAILED);
+            transfer.setStatus(TransferStatusEnum.FAILED);
             transferRepository.save(transfer);
             throw new BadTransferRequestException("You can transfer money only between your cards");
         }
-        if(!(toCard.getStatus().equals(CardStatus.ACTIVE)&& fromCard.getStatus().equals(CardStatus.ACTIVE))){
-            transfer.setStatus(TransferStatus.FAILED);
+        if (toCard.getStatus() != CardStatusEnum.ACTIVE || fromCard.getStatus() != CardStatusEnum.ACTIVE) {
+            transfer.setStatus(TransferStatusEnum.FAILED);
             transferRepository.save(transfer);
             throw  new BadTransferRequestException("Incorrect card status");
         }
@@ -50,7 +50,7 @@ public class TransferService {
         var toBalance = toCard.getBalance();
         var fromBalance = fromCardOpt.get().getBalance();
         if (fromBalance.compareTo(amount)<0){
-            transfer.setStatus(TransferStatus.FAILED);
+            transfer.setStatus(TransferStatusEnum.FAILED);
             transferRepository.save(transfer);
             throw  new BadTransferRequestException("Not enough money to transfer");
         }
@@ -62,7 +62,7 @@ public class TransferService {
         fromCard.setBalance(fromBalance);
         cardRepository.save(toCard);
         cardRepository.save(fromCard);
-        transfer.setStatus(TransferStatus.SUCCESSFUL);
+        transfer.setStatus(TransferStatusEnum.SUCCESSFUL);
         transferRepository.save(transfer);
 
     }

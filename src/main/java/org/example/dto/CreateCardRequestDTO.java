@@ -1,4 +1,4 @@
 package org.example.dto;
 
-public record CreateCardRequest(String holderName) {
+public record CreateCardRequestDTO(String holderName) {
 }

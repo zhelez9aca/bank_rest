@@ -1,7 +1,7 @@
 package org.example.exception;
 
-public class BadAdminRequest extends RuntimeException {
-    public BadAdminRequest(String message) {
+public class BadAdminRequestException extends RuntimeException {
+    public BadAdminRequestException(String message) {
         super(message);
     }
 }

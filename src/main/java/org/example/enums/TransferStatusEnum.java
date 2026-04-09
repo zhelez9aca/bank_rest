@@ -1,5 +1,5 @@
 package org.example.enums;
 
-public enum TransferStatus {
-    SUCCESSFUL,PENDING,FAILED
+public enum TransferStatusEnum {
+    PENDING, SUCCESSFUL, FAILED
 }

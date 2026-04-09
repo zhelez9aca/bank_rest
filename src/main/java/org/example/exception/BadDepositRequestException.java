@@ -1,7 +1,7 @@
 package org.example.exception;
 
-public class BadDepositRequest extends RuntimeException {
-    public BadDepositRequest(String message) {
+public class BadDepositRequestException extends RuntimeException {
+    public BadDepositRequestException(String message) {
         super(message);
     }
 }

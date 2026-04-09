@@ -1,12 +1,11 @@
 package org.example.dto;
 
-import org.example.enums.Role;
-import org.example.enums.UserStatus;
+import org.example.enums.RoleEnum;
+import org.example.enums.UserStatusEnum;
 
-public record UserResponse(Long userId,
-                           Role role,
-                           String login,
-                           String name,
-                           UserStatus status
-) {
+public record UserResponseDTO(Long id,
+                              RoleEnum role,
+                              String login,
+                              String name,
+                              UserStatusEnum userStatus) {
 }

@@ -3,7 +3,7 @@ package org.example.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.example.enums.CardStatus;
+import org.example.enums.CardStatusEnum;
 
 import java.math.BigDecimal;
 
@@ -27,7 +27,7 @@ public class Card {
     private Integer expiryYear;
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private CardStatus status;
+    private CardStatusEnum status;
     @Column(nullable = false,precision = 19,scale = 2)
     private BigDecimal balance = BigDecimal.valueOf(0);
     @ManyToOne()

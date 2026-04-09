@@ -4,7 +4,8 @@ package org.example.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.example.enums.Role;
+import org.example.enums.RoleEnum;
+import org.example.enums.UserStatusEnum;
 
 import java.time.LocalDateTime;
 
@@ -17,7 +18,7 @@ public class Users {
     private Long id;
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private Role role;
+    private RoleEnum role;
     @Column(unique = true,nullable = false)
     private String login;
     @Column(nullable = false)
@@ -30,4 +31,8 @@ public class Users {
     }
     @Column
     private String name;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private UserStatusEnum userStatus = UserStatusEnum.ACTIVE;
 }

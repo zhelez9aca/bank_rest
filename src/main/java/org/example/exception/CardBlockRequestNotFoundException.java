@@ -1,7 +1,7 @@
 package org.example.exception;
 
-public class CardBlockRequestNotFoundExceprion extends RuntimeException {
-    public CardBlockRequestNotFoundExceprion(String message) {
+public class CardBlockRequestNotFoundException extends RuntimeException {
+    public CardBlockRequestNotFoundException(String message) {
         super(message);
     }
 }

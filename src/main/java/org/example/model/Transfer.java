@@ -3,7 +3,7 @@ package org.example.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.example.enums.TransferStatus;
+import org.example.enums.TransferStatusEnum;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -29,7 +29,7 @@ public class Transfer {
     }
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private TransferStatus status;
+    private TransferStatusEnum status;
     @Column(nullable = false,scale = 2,precision = 19)
     private BigDecimal amount;
     @ManyToOne

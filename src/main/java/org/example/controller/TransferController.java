@@ -1,7 +1,7 @@
 package org.example.controller;
 
 import lombok.AllArgsConstructor;
-import org.example.dto.TransferRequest;
+import org.example.dto.TransferRequestDTO;
 import org.example.model.Transfer;
 import org.example.service.TransferService;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TransferController {
     private  final TransferService transferService;
     @PostMapping
-    public ResponseEntity<?> transfer(@RequestBody TransferRequest request){
+    public ResponseEntity<?> transfer(@RequestBody TransferRequestDTO request){
         transferService.transfer(request.fromCardId(), request.toCardId(), request.amount());
         return ResponseEntity.status(200).build();
 

@@ -1,4 +1,4 @@
 package org.example.dto;
 
-public class CardBlockRequestDto {
+public record CardBlockRequestDTO(String reason) {
 }

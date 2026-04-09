@@ -1,8 +1,10 @@
 package org.example.service;
 
-import org.example.dto.LoginRequest;
-import org.example.dto.RegisterRequest;
-import org.example.enums.Role;
+import org.example.dto.LoginRequestDTO;
+import org.example.dto.RegisterRequestDTO;
+import org.example.enums.RoleEnum;
+import org.example.enums.UserStatusEnum;
+import org.example.exception.BlockedUserException;
 import org.example.exception.ConflictException;
 import org.example.exception.IncorrectLoginOrPasswordException;
 import org.example.model.Users;
@@ -35,7 +37,7 @@ public class AuthService {
         this.cookieSecure = cookieSecure;
     }
 
-    public ResponseEntity<?> register(RegisterRequest request) {
+    public ResponseEntity<?> register(RegisterRequestDTO request) {
         if (userRepository.existsByLogin(request.login())) {
             throw new ConflictException("Login already exists");
         }
@@ -44,14 +46,19 @@ public class AuthService {
         Users userEntity = new Users();
         userEntity.setPasswordHash(passwordHash);
         userEntity.setLogin(request.login());
-        userEntity.setRole(Role.USER);
+        userEntity.setRole(RoleEnum.USER);
+        userEntity.setUserStatus(UserStatusEnum.ACTIVE);
         userRepository.save(userEntity);
-        return login(new LoginRequest(request.login(), request.password()));
+        return login(new LoginRequestDTO(request.login(), request.password()));
     }
 
-    public ResponseEntity<?> login(LoginRequest request) {
+    public ResponseEntity<?> login(LoginRequestDTO request) {
         Users userEntity = userRepository.findByLogin(request.login())
                 .orElseThrow(() -> new IncorrectLoginOrPasswordException("No user with this login"));
+
+        if (userEntity.getUserStatus() == UserStatusEnum.BLOCKED) {
+            throw new BlockedUserException("User is blocked");
+        }
 
         if (encoder.matches(request.password(), userEntity.getPasswordHash())) {
             Long userId = userEntity.getId();
