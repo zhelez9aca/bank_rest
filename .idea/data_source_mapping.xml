@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="DataSourcePerFileMappings">
-    <file url="file://$PROJECT_DIR$/src/main/resources/db/migration/V2_add_user_status.sql" value="dfcb86db-7ca4-44c4-9200-1213c10fac2e" />
-  </component>
-</project>
