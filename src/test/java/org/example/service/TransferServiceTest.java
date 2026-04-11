@@ -1,3 +1,5 @@
+package org.example.service;
+
 import org.example.enums.CardStatusEnum;
 import org.example.enums.TransferStatusEnum;
 import org.example.exception.BadTransferRequestException;
@@ -7,7 +9,6 @@ import org.example.model.Transfer;
 import org.example.model.Users;
 import org.example.repository.CardRepository;
 import org.example.repository.TransferRepository;
-import org.example.service.TransferService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
